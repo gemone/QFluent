@@ -1,0 +1,25 @@
+{
+  "name": "qfluent-ui",
+  "version": "0.0.1",
+  "builtin-baseline": "4002e3abc6d3e468c73d2d9777a7dd96af5dc224",
+  "dependencies": [
+    {
+      "name": "qt",
+      "version>=": "6.8.3",
+      "features": [
+        "qml"
+      ]
+    }
+  ],
+  "features": {
+    "tests": {
+      "description": "Build tests",
+      "dependencies": [
+        {
+          "name": "gtest",
+          "version>=": "1.17.0"
+        }
+      ]
+    }
+  }
+}
