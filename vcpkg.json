@@ -4,11 +4,20 @@
   "builtin-baseline": "4002e3abc6d3e468c73d2d9777a7dd96af5dc224",
   "dependencies": [
     {
-      "name": "qt",
+      "name": "fmt",
+      "version>=": "11.0.2"
+    },
+    {
+      "name": "qtbase",
       "version>=": "6.8.3",
+      "default-features": false,
       "features": [
-        "qml"
+        "brotli", "dbus", "network", "gui", "widgets", "dbus", "fontconfig", "concurrent"
       ]
+     },
+    {
+      "name": "qtdeclarative",
+      "version>=": "6.8.3"
     }
   ],
   "features": {
