@@ -36,7 +36,5 @@ $RECYCLE.BIN/
 ehthumbs.db
 Thumbs.db
 
-# Playground
-playground/*
-!playground/CMakeLists.txt
-!playground/main.cpp
+compile_commands.json
+.cache/

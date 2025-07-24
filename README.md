@@ -14,7 +14,7 @@ TODO
 
 ## Contributing
 
-1. pre-commit
+### pre-commit
 
 We use [pre-commit](https://pre-commit.com/) to manage our git hooks.
 
@@ -29,23 +29,35 @@ uv tool install pre-commit
 pre-commit install
 ```
 
-2. vcpkg
+### Qt Package
 
-We use [vcpkg](https://vcpkg.io) to manage our dependencies.
-
-Please define the `VCPKG_ROOT` environment variable to point to your vcpkg installation.
-
-ADD `CMakeUserPresets.json` to define the vcpkg root path.
+You can define the Qt path by setting the `QT_ROOT` and `QT6_ROOT`. Example:
 
 ```json
 {
-  "version": 3,
+  "version": 7,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 27,
+    "patch": 0
+  },
   "configurePresets": [
     {
-      "name": "default",
-      "inherits": "vcpkg",
+      "name": "sys-dev",
+      "displayName": "Default Dev Config",
+      "inherits": "debug",
       "environment": {
-        "VCPKG_ROOT": "~/Library/vcpkg"
+        "QT_DIR": "/usr/lib/qt6",
+        "QT6_DIR": "/usr/lib/qt6"
+      }
+    },
+    {
+      "name": "custom-dev",
+      "displayName": "Custom Dev Config",
+      "inherits": "debug",
+      "environment": {
+        "QT_DIR": "~/Library/QT/6.9.1/gcc_64/",
+        "QT6_DIR": "~/Library/QT/6.9.1/gcc_64/"
       }
     }
   ]
@@ -55,6 +67,6 @@ ADD `CMakeUserPresets.json` to define the vcpkg root path.
 You can build:
 
 ```shell
-cmake --preset default
+cmake --preset sys-dev
 cmake --build build
 ```
